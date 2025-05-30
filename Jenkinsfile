@@ -9,7 +9,7 @@ pipeline{
                     }
                     steps{
                         dir('/mnt'){
-                        sh "git clone https://github.com/1720-swaraj/project.git"
+                        sh "git clone https://github.com/1720-swaraj/project.git ."
                         }
                     }
                 }
@@ -19,7 +19,7 @@ pipeline{
                     }
                     steps{
                         dir('/mnt'){    
-                        sh "git clone https://github.com/1720-swaraj/project.git"
+                        sh "git clone https://github.com/1720-swaraj/project.git ."
                         }
                     }
                 }
