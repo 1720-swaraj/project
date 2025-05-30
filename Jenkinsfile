@@ -9,6 +9,7 @@ pipeline{
                     }
                     steps{
                         dir('slave-1-workspace'){
+                            cleanWs()
                         sh "git clone https://github.com/1720-swaraj/project.git"
                         }
                     }
@@ -19,6 +20,7 @@ pipeline{
                     }
                     steps{
                         dir('slave-2-workspace'){
+                            cleanWs()
                         sh "git clone https://github.com/1720-swaraj/project.git"
                         }
                     }
