@@ -8,7 +8,7 @@ pipeline{
                         label "slave-1"
                     }
                     steps{
-                        dir('/mnt/project-workspace'){
+                        dir('project-workspace'){
                         cleanWs()
                         sh "git clone https://github.com/1720-swaraj/project.git"
                         }
@@ -19,7 +19,7 @@ pipeline{
                         label "slave-2"
                     }
                     steps{
-                        dir('/mnt/project-workspace'){
+                        dir('project-workspace'){
                         cleanWs()
                         sh "git clone https://github.com/1720-swaraj/project.git"
                         }
