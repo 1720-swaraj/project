@@ -9,7 +9,8 @@ pipeline{
                     }
                     steps{
                         dir('/mnt/project-workspace'){
-                        sh "sudo yum install -y git httpd"
+                        sh "echo "installing git""
+                        sh "sudo yum install -y git httpd || echo "not installed""
                         sh "systemctl start httpd"
                         sh "systemctl enable httpd"
                         sh "systemctl status httpd"
