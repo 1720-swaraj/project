@@ -9,6 +9,8 @@ pipeline{
                     }
                     steps{
                         dir('/mnt/project-workspace'){
+                        sh 'echo "slave-1 working directory is $WORKSPACE"'
+                        cleanWs()
                         sh 'echo "installing git"'
                         sh 'sudo yum install -y git httpd || echo "not installed"'
                         sh "systemctl start httpd"
@@ -26,6 +28,7 @@ pipeline{
                     }
                     steps{
                         dir('/mnt/project-workspace'){
+                        cleanWs()
                         sh "sudo yum install -y git httpd"
                         sh "systemctl start httpd"
                         sh "systemctl enable httpd"
