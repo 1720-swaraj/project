@@ -9,6 +9,7 @@ pipeline{
                     }
                     steps{
                         dir('/mnt/project-workspace'){
+                        sh "chmod -R 777 /mnt"
                         sh "yum install git -y"
                         sh "yum install httpd -y"
                         sh "systemctl start httpd"
@@ -26,6 +27,7 @@ pipeline{
                     }
                     steps{
                         dir('/mnt/project-workspace'){
+                        sh "chmod -R 777 /mnt"    
                         sh "yum install git -y"
                         sh "yum install httpd -y"
                         sh "systemctl start httpd"
