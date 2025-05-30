@@ -5,24 +5,20 @@ pipeline{
             parallel{
                 stage('slave-1'){
                     agent{
-                        label "jenkins-slave-1"
+                        label "slave-1"
                     }
                     steps{
-                        dir('slave-1-workspace'){
-                        sh 'echo "cleaning workspace"'
-                        cleanWs()
+                        dir('/mnt/slave-1-workspace'){
                         sh "git clone https://github.com/1720-swaraj/project.git"
                         }
                     }
                 }
                  stage('slave-2'){
                     agent{
-                        label "jenkins-slave-2"
+                        label "slave-2"
                     }
                     steps{
-                        dir('slave-2-workspace'){
-                        sh 'echo "cleaning workspace"'    
-                        cleanWs()
+                        dir('/mnt/slave-2-workspace'){    
                         sh "git clone https://github.com/1720-swaraj/project.git"
                         }
                     }
