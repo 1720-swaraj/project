@@ -8,7 +8,10 @@ pipeline{
                         label "slave-1"
                     }
                     steps{
-                        dir('/mnt/slave-1-project'){
+                        dir('/mnt/project'){
+                        sh 'echo "installing git"'    
+                        sh 'yum install git -y'
+                        sh 'rm -rf *'    
                         sh "git clone https://github.com/1720-swaraj/project.git ."
                         }
                     }
@@ -18,7 +21,10 @@ pipeline{
                         label "slave-2"
                     }
                     steps{
-                        dir('/mnt/slave-1-project'){    
+                        dir('/mnt/project'){
+                        sh 'echo "installing git"'        
+                        sh 'yum install git -y'
+                        sh 'rm -rf *'        
                         sh "git clone https://github.com/1720-swaraj/project.git ."
                         }
                     }
