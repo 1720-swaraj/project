@@ -11,14 +11,7 @@ pipeline{
                         dir('/mnt/project-workspace'){
                         sh 'echo "slave-1 working directory is $WORKSPACE"'
                         cleanWs()
-                        sh 'echo "installing git"'
-                        sh 'sudo yum install -y git httpd || echo "not installed"'
-                        sh "systemctl start httpd"
-                        sh "systemctl enable httpd"
-                        sh "systemctl status httpd"
                         sh "git clone https://github.com/1720-swaraj/project.git"
-                        sh "cp -r index.html /var/www/html/ "
-                        sh "chmod -R 777 index.html"
                         }
                     }
                 }
@@ -29,13 +22,9 @@ pipeline{
                     steps{
                         dir('/mnt/project-workspace'){
                         cleanWs()
-                        sh "sudo yum install -y git httpd"
-                        sh "systemctl start httpd"
-                        sh "systemctl enable httpd"
-                        sh "systemctl status httpd"
+                        sh 'echo "slave-2 working directory is $WORKSPACE"'
+                        cleanWs()
                         sh "git clone https://github.com/1720-swaraj/project.git"
-                        sh "cp -r index.html /var/www/html/ "
-                        sh "chmod -R 777 index.html"
                         }
                     }
                 }
