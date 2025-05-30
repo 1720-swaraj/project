@@ -10,7 +10,7 @@ pipeline{
                     steps{
                         dir('/mnt/project'){
                         sh 'echo "installing git"'    
-                        sh 'yum install git -y'
+                        sh 'sudo yum install git -y'
                         sh 'rm -rf *'    
                         sh "git clone https://github.com/1720-swaraj/project.git ."
                         }
@@ -23,7 +23,7 @@ pipeline{
                     steps{
                         dir('/mnt/project'){
                         sh 'echo "installing git"'        
-                        sh 'yum install git -y'
+                        sh 'sudo yum install git -y'
                         sh 'rm -rf *'        
                         sh "git clone https://github.com/1720-swaraj/project.git ."
                         }
