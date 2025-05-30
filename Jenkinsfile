@@ -9,6 +9,7 @@ pipeline{
                     }
                     steps{
                         dir('/mnt/project-workspace'){
+                        sh 'chmod -R 777 /mnt'    
                         sh 'echo "slave-1 working directory is $WORKSPACE"'
                         cleanWs()
                         sh "git clone https://github.com/1720-swaraj/project.git"
@@ -21,7 +22,7 @@ pipeline{
                     }
                     steps{
                         dir('/mnt/project-workspace'){
-                        cleanWs()
+                        sh 'chmod -R 777 /mnt'
                         sh 'echo "slave-2 working directory is $WORKSPACE"'
                         cleanWs()
                         sh "git clone https://github.com/1720-swaraj/project.git"
