@@ -5,7 +5,7 @@ pipeline{
             parallel{
                 stage('slave-1'){
                     agent{
-                        label "slave-1"
+                        label "jenkins-slave-1"
                     }
                     steps{
                         dir('slave-1-workspace'){
@@ -16,7 +16,7 @@ pipeline{
                 }
                  stage('slave-2'){
                     agent{
-                        label "slave-2"
+                        label "jenkins-slave-2"
                     }
                     steps{
                         dir('slave-2-workspace'){
