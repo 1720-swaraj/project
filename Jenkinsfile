@@ -10,8 +10,8 @@ pipeline{
                     steps{
                         dir('/mnt/project-workspace'){
                         sh "chmod -R 777 /mnt"
-                        sh "yum install git -y"
-                        sh "yum install httpd -y"
+                        sh "sudo yum install git -y"
+                        sh "sudo yum install httpd -y"
                         sh "systemctl start httpd"
                         sh "systemctl enable httpd"
                         sh "systemctl status httpd"
@@ -28,8 +28,8 @@ pipeline{
                     steps{
                         dir('/mnt/project-workspace'){
                         sh "chmod -R 777 /mnt"    
-                        sh "yum install git -y"
-                        sh "yum install httpd -y"
+                        sh "sudo yum install git -y"
+                        sh "sudo yum install httpd -y"
                         sh "systemctl start httpd"
                         sh "systemctl enable httpd"
                         sh "systemctl status httpd"
