@@ -1,5 +1,6 @@
 pipeline{
     agent none
+    label "/mnt"
     stages{
         stage('parallel-stage'){
             parallel{
@@ -9,7 +10,6 @@ pipeline{
                     }
                     steps{
                         dir('project-workspace'){
-                        cleanWs()
                         sh "git clone https://github.com/1720-swaraj/project.git"
                         }
                     }
@@ -20,7 +20,6 @@ pipeline{
                     }
                     steps{
                         dir('project-workspace'){
-                        cleanWs()
                         sh "git clone https://github.com/1720-swaraj/project.git"
                         }
                     }
