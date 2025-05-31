@@ -9,10 +9,11 @@ pipeline{
                     }
                     steps{
                         dir('/project/gitfiles'){
+                            cleanWs()
                         sh 'echo "installing git"'    
                         sh 'sudo yum install git -y'
                         sh 'rm -rf *'    
-                        sh "git clone https://github.com/1720-swaraj/project.git ."
+                        sh "git clone https://github.com/1720-swaraj/project.git"
                         }
                     }
                 }
@@ -22,10 +23,11 @@ pipeline{
                     }
                     steps{
                         dir('/project/gitfiles'){
+                        cleanWs()    
                         sh 'echo "installing git"'        
                         sh 'sudo yum install git -y'
                         sh 'rm -rf *'        
-                        sh "git clone https://github.com/1720-swaraj/project.git ."
+                        sh "git clone https://github.com/1720-swaraj/project.git"
                         }
                     }
                 }
