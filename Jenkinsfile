@@ -13,6 +13,8 @@ pipeline{
                             cleanWs()
                         sh 'echo "installing git"'    
                         sh 'sudo yum install git -y'
+                        sh 'echo "running pwd"'
+                        sh 'pwd'
                         sh 'rm -rf *'    
                         sh "git clone https://github.com/1720-swaraj/project.git"
                         }
@@ -28,6 +30,8 @@ pipeline{
                         cleanWs()    
                         sh 'echo "installing git"'        
                         sh 'sudo yum install git -y'
+                        sh 'echo "running pwd"'
+                        sh 'pwd'
                         sh 'rm -rf *'        
                         sh "git clone https://github.com/1720-swaraj/project.git"
                         }
