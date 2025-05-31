@@ -1,17 +1,11 @@
 pipeline{
-    agent none
-    stages{
-        stage("installing git on master"){
-            agent{
+    agent{
                 label 'built-in'
             }
             tools{
                 git 'git-install'
             }
-            steps{
-                sh 'sudo yum install git -y'
-            }
-        }
+    stages{
         stage('parallel-stage'){
             parallel{
                 stage('slave-1'){
@@ -25,8 +19,6 @@ pipeline{
                         dir('/project/gitfiles'){
                         sh 'echo "Running cleanWs in workspace: $WORKSPACE"'    
                             cleanWs()
-                        sh 'echo "installing git"'    
-                        sh 'sudo yum install git -y'
                         sh 'echo "running pwd"'
                         sh 'pwd'
                         sh 'rm -rf *'    
@@ -45,8 +37,6 @@ pipeline{
                         dir('/project/gitfiles'){
                             sh 'echo "Running cleanWs in workspace: $WORKSPACE"'
                         cleanWs()    
-                        sh 'echo "installing git"'        
-                        sh 'sudo yum install git -y'
                         sh 'echo "running pwd"'
                         sh 'pwd'
                         sh 'rm -rf *'        
