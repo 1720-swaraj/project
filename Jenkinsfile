@@ -8,7 +8,7 @@ pipeline{
                         label "slave-1"
                     }
                     steps{
-                        dir('/mnt/project'){
+                        dir('/project/gitfiles'){
                         sh 'echo "installing git"'    
                         sh 'sudo yum install git -y'
                         sh 'rm -rf *'    
@@ -21,7 +21,7 @@ pipeline{
                         label "slave-2"
                     }
                     steps{
-                        dir('/mnt/project'){
+                        dir('/project/gitfiles'){
                         sh 'echo "installing git"'        
                         sh 'sudo yum install git -y'
                         sh 'rm -rf *'        
