@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage("installing git on master"){
             agent{
-                lable 'built-in'
+                label 'built-in'
             }
             tools{
                 git 'git-install'
