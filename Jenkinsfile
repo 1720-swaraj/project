@@ -9,6 +9,7 @@ pipeline{
                     }
                     steps{
                         dir('/project/gitfiles'){
+                        sh 'echo "Running cleanWs in workspace: $WORKSPACE"'    
                             cleanWs()
                         sh 'echo "installing git"'    
                         sh 'sudo yum install git -y'
@@ -23,6 +24,7 @@ pipeline{
                     }
                     steps{
                         dir('/project/gitfiles'){
+                            sh 'echo "Running cleanWs in workspace: $WORKSPACE"'
                         cleanWs()    
                         sh 'echo "installing git"'        
                         sh 'sudo yum install git -y'
