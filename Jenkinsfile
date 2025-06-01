@@ -8,9 +8,9 @@ pipeline {
     stages {
         stage('stage-1') {
                 steps {
-                    dir('/mnt/') {
+                    dir('/mnt/master') {
                     sh 'echo "master branch"'
-                    git url: 'https://github.com/1720-swaraj/project.git .', branch: 'master'
+                    git url: 'https://github.com/1720-swaraj/project.git', branch: 'master'
                     }
                 }
         }
