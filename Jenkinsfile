@@ -4,12 +4,12 @@ pipeline {
     }
     stages {
         stage('stage-1') {
-            dir('/mnt/') {
                 steps {
+                    dir('/mnt/') {
                     sh 'echo "master branch"'
                     git url: 'https://github.com/1720-swaraj/project.git .'
+                    }
                 }
-            }
         }
     }
 }
