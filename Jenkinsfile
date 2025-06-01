@@ -2,6 +2,9 @@ pipeline {
     agent {
         label 'built-in'
     }
+    tools{
+        git 'git-install'
+    }
     stages {
         stage('stage-1') {
                 steps {
