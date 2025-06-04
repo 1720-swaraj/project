@@ -19,6 +19,7 @@ pipeline {
             }
             steps{
                 dir('/slave'){
+                     cleanWs()
                      sh 'echo "installing git and maven on slave"'
                 }
                
