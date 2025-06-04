@@ -18,7 +18,7 @@ pipeline {
                 maven 'install-maven'
             }
             steps{
-                dir('/slave'){
+                dir('/mnt/slave'){
                      cleanWs()
                      sh 'echo "installing git and maven on slave"'
                 }
