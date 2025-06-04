@@ -16,7 +16,6 @@ pipeline {
             }
             tools{
                 maven 'install-maven'
-                git 'install-git'
             }
             steps{
                 dir('/slave'){
