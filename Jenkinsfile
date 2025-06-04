@@ -11,7 +11,7 @@ pipeline {
               }
         }
         stage('stage-2'){
-            label{
+            agent{
                 label 'slave'
             }
             tools{
