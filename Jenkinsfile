@@ -1,18 +1,15 @@
 pipeline {
-    agent {
-        label 'built-in'
+    agent{
+    label 'built-in'
+        customWorkspace '/mnt'
     }
-    // tools{
-    //     git 'git-install'
-    // }
-    stages {
-        stage('stage-1') {
-                steps {
-                    dir('/mnt/master') {
-                    sh 'echo "master branch"'
-                    git url: 'https://github.com/1720-swaraj/project.git', branch: 'master'
-                    }
-                }
+    stages{
+        stage('stage-1){
+              steps{
+                  sh 'chmod -R 777 /mnt'
+                  sh 'echo "cloning project on master"'
+                  git url: 'https://github.com/1720-swaraj/project.git', branch: 'master'
+              }
         }
     }
 }
