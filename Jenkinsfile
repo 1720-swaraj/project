@@ -15,9 +15,14 @@ pipeline {
                 label 'slave'
             }
             tools{
-                jdk 'install-java'
                 maven 'install-maven'
                 git 'install-git'
+            }
+            steps{
+                dir('/slave'){
+                     sh 'echo "installing git and maven on slave"'
+                }
+               
             }
         }
     }
