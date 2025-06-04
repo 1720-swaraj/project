@@ -4,7 +4,7 @@ pipeline {
         customWorkspace '/mnt'
     }
     stages{
-        stage('stage-1){
+        stage('stage-1'){
               steps{
                   sh 'chmod -R 777 /mnt'
                   sh 'echo "cloning project on master"'
