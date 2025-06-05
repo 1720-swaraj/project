@@ -10,7 +10,7 @@ pipeline {
                   git url: 'https://github.com/1720-swaraj/project.git', branch: 'master'
               }
         }
-        stage('stage-2){
+        stage('stage-2'){
               steps{
                   withCredentials([[
                       $class 'AmazonWebServicesCredentialsBinding',
