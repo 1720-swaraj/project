@@ -1,28 +1,16 @@
-pipeline {
+pipeline{
     agent{
         label 'built-in'
     }
+    tools{
+        maven 'install-maven'
+    }
     stages{
         stage('stage-1'){
-              steps{
-                  cleanWs()
-                  sh 'echo "cloning project on master"'
-                  git url: 'https://github.com/1720-swaraj/project.git', branch: 'master'
-              }
-        }
-        stage('stage-2'){
-            agent{
-                label 'slave'
-            }
-            tools{
-                maven 'install-maven'
-            }
             steps{
-                dir('/mnt/slave'){
-                     cleanWs()
-                     sh 'echo "installing git and maven on slave"'
-                }
-               
+                cleanWs()
+                sh 'echo "project clonning"'
+                git url: 'https://github.com/1720-swaraj/project.git', branch: 'master'
             }
         }
     }
