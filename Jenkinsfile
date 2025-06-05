@@ -13,7 +13,7 @@ pipeline {
         stage('stage-2'){
               steps{
                   withCredentials([[
-                      $class 'AmazonWebServicesCredentialsBinding',
+                      $class: 'AmazonWebServicesCredentialsBinding',
                       credentialsId: 'aws-jenkins-creds'
                   ]]){
                       sh ''' 
