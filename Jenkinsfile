@@ -2,15 +2,19 @@ pipeline{
     agent{
         label 'built-in'
     }
-    tools{
-        maven 'install-maven'
+    environment{
+        DOCKER_IMAGE = " httpd-${env.BRANCH_NAME}"
     }
     stages{
-        stage('stage-1'){
+        stage('checkout'){
             steps{
                 cleanWs()
-                sh 'echo "project clonning"'
-                git url: 'https://github.com/1720-swaraj/project.git', branch: 'master'
+                checkout scm
+            }
+        }
+        stage('build'){
+            steps{
+                sh 'echo "${env}"'
             }
         }
     }
