@@ -27,9 +27,10 @@ pipeline {
                         sh "docker rmi -f ${env.DOCKER_IMAGE}"
                     }
                         sh '''
-                    docker run -itdp 80:80 --name \$DOCKER_CONTAINER -v \$WORKSPACE/web-site:/usr/local/apache2/htdocs/ httpd
+                    docker run -itdp 80:80 --name \$DOCKER_CONTAINER -v \$WORKSPACE/web-site:/usr/local/apache2/htdocs/ \$DOCKER_IMAGE
                     docker ps -a
                 '''
+                sh "docker inspect ${env.DOCKER_CONTAINER} | grep \"IPA\""
                 }
             }
         }
