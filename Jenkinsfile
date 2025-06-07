@@ -3,7 +3,8 @@ pipeline {
         label 'built-in'
     }
     environment {
-        DOCKER_IMAGE = "httpd-${env.BRANCH_NAME}"
+        DOCKER_CONTAINER = "httpd-${env.BRANCH_NAME}"
+        DOCKER_IMAGE = 'httpd:latest'
     }
     stages {
         stage('checkout') {
@@ -20,10 +21,16 @@ pipeline {
         }
         stage('build') {
             steps {
-                sh '''
-                    docker run -itdp 80:80 --name \$DOCKER_IMAGE -v /web-site:usr/local/apache2/htdocs/ httpd
+                script {
+                    def isDockerPresent = sh(script: "docker images -q ${env.DOCKER_IMAGE}", returnStdout: true)
+                    if (isDockerPresent) {
+                        sh "docker rmi -f ${env.DOCKER_IMAGE}"
+                    }
+                        sh '''
+                    docker run -itdp 80:80 --name \$DOCKER_CONTAINER -v \$WORKSPACE/web-site:/usr/local/apache2/htdocs/ httpd
                     docker ps -a
                 '''
+                }
             }
         }
     }
