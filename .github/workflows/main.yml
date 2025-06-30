@@ -1,0 +1,13 @@
+name: Docker run
+
+on:
+  push:
+    branches: ["master"]
+
+jobs:
+  git-pull:
+    runs-on:  httpd-latest
+
+    steps:
+      - uses: action/checkout@4
+    
