@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: self
+    runs-on: self-hosted
     env:
       DOCKER_IMAGE: httpd:latest
 
