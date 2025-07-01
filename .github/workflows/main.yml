@@ -3,12 +3,12 @@ name: Docker HTTPD Pipeline
 on:
   push:
     branches:
-      - main
+      - master
       - '**'  # Optional: to allow all branches
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: linux-latest
     env:
       DOCKER_IMAGE: httpd:latest
 
@@ -16,25 +16,3 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Clean workspace
-        run: |
-          sudo rm -rf *
-          mkdir -p web-site
-
-      - name: Copy index.html
-        run: cp index.html web-site/
-
-      - name: Remove Docker image if exists
-        run: |
-          IMAGE_ID=$(docker images -q $DOCKER_IMAGE)
-          if [ -n "$IMAGE_ID" ]; then
-            docker rmi -f $DOCKER_IMAGE
-          fi
-
-      - name: Run Docker container
-        run: |
-          CONTAINER_NAME="httpd-${GITHUB_REF_NAME}"
-          docker pull $DOCKER_IMAGE
-          docker run -dit -p 80:80 --name $CONTAINER_NAME -v "$PWD/web-site":/usr/local/apache2/htdocs/ $DOCKER_IMAGE
-          docker ps -a
-          docker inspect $CONTAINER_NAME | grep '"IPAddress"'
